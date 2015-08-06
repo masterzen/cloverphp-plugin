@@ -4,12 +4,12 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.596.2</version>
+        <version>1.565.3</version>
     </parent>
 
     <artifactId>cloverphp</artifactId>
     <packaging>hpi</packaging>
-    <version>0.5-SNAPSHOT</version>
+    <version>0.5-dow01</version>
     <name>Jenkins Clover PHP plugin</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/Clover+PHP+Plugin</url>
 

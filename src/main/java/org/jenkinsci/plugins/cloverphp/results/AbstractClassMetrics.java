@@ -288,7 +288,7 @@ public abstract class AbstractClassMetrics {
             protected DataSetBuilder<String, NumberOnlyBuildLabel> createDataSet(AbstractClassMetrics metrics) {
                 DataSetBuilder<String, ChartUtil.NumberOnlyBuildLabel> dsb = new DataSetBuilder<String, ChartUtil.NumberOnlyBuildLabel>();
                 for (AbstractClassMetrics m = metrics; m != null; m = m.getPreviousResult()) {
-                    ChartUtil.NumberOnlyBuildLabel label = new ChartUtil.NumberOnlyBuildLabel((Run) m.getOwner());
+                    ChartUtil.NumberOnlyBuildLabel label = new ChartUtil.NumberOnlyBuildLabel(m.getOwner());
                     dsb.add(m.getMethodCoverage().getPercentageFloat(),
                             Messages.AbstractCloverMetrics_Label_method(), label);
                     dsb.add(m.getStatementCoverage().getPercentageFloat(),

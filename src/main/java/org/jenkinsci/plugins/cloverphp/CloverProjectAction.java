@@ -38,17 +38,14 @@ public class CloverProjectAction extends Actionable implements ProminentProjectA
         this.publisher = publisher;
     }
 
-    @Override
     public String getUrlName() {
         return "cloverphp";
     }
 
-    @Override
     public String getSearchUrl() {
         return getUrlName();
     }
 
-    @Override
     public String getIconFileName() {
         if (publisher.isPublishHtmlReport()) {
             FilePath r = getWorkspaceReportDir();
@@ -63,7 +60,6 @@ public class CloverProjectAction extends Actionable implements ProminentProjectA
         return null;
     }
 
-    @Override
     public String getDisplayName() {
         if (publisher.isPublishHtmlReport()) {
             FilePath r = getWorkspaceReportDir();
