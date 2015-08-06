@@ -8,7 +8,7 @@
             <h1>${%Clover PHP Coverage Report}</h1>
             <clover:breadcrumb />
 
-            <h2>${%Class} ${it.name}</h2>
+            <h2>${%Class} ${it.namespace}\${it.name}</h2>
 
             <j:if test="${it.previousResult != null}">
               <clover:trendGraph />

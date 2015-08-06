@@ -43,6 +43,8 @@ public abstract class AbstractClassMetrics {
     private AbstractClassMetrics parent;
 
     private String name;
+    
+    private String namespace;
 
     private int methods;
 
@@ -184,9 +186,16 @@ public abstract class AbstractClassMetrics {
      * @return Value for property 'name'.
      */
     public String getName() {
+      
         return name;
     }
 
+
+    public String getNamespace() {
+        return namespace;
+    }
+
+    
     public String getURLSafeName() {
         return Util.rawEncode(name.replaceAll("[/+]", "_"));
     }
@@ -199,6 +208,10 @@ public abstract class AbstractClassMetrics {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setNamespace(String namespace) {
+      this.namespace = namespace;
+  }
 
     public AbstractBuild getOwner() {
         return owner;

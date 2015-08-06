@@ -79,7 +79,7 @@ public class CloverCoverageParserTest {
     }
 
     @Test
-    public void testParse() throws Exception {
+    public void testParsePackage() throws Exception {
         ProjectCoverage result = CloverCoverageParser.parse(getClass().getResourceAsStream("clover.xml"));
         assertNotNull(result);
         assertEquals(ProjectCoverage.class, result.getClass());
@@ -118,6 +118,20 @@ public class CloverCoverageParserTest {
         assertEquals(1, classResult.getCoveredstatements());
         assertEquals(4, classResult.getElements());
         assertEquals(2, classResult.getCoveredelements());
+    }
+
+    @Test
+    public void testParse() throws Exception {
+        ProjectCoverage result = CloverCoverageParser.parse(getClass().getResourceAsStream("clover-package.xml"));
+        assertNotNull(result);
+        assertEquals(ProjectCoverage.class, result.getClass());
+        assertEquals(3, result.getFileCoverages().size());
+        
+        FileCoverage fileResult = result.getFileCoverages().get(1);
+        assertEquals("/mnt/jenkins/workspace/rest-api/coverage/src/endpoints/game/v1/AchievementsController.php", fileResult.getName());
+        assertEquals(1, fileResult.getClassCoverages().size());
+        ClassCoverage classResult = fileResult.getClassCoverages().get(0);
+        assertEquals("AchievementController", classResult.getName());
     }
 
 }

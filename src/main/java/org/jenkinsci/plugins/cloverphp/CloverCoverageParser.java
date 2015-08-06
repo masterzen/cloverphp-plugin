@@ -80,10 +80,20 @@ public final class CloverCoverageParser {
         digester.addSetProperties("coverage/project/file/metrics");
         digester.addSetNext("coverage/project/file", "addFileCoverage", FileCoverage.class.getName());
 
+        digester.addObjectCreate("coverage/project/package/file", FileCoverage.class);
+        digester.addSetProperties("coverage/project/package/file");
+        digester.addSetProperties("coverage/project/package/file/metrics");
+        digester.addSetNext("coverage/project/package/file", "addFileCoverage", FileCoverage.class.getName());
+
         digester.addObjectCreate("coverage/project/file/class", ClassCoverage.class);
         digester.addSetProperties("coverage/project/file/class");
         digester.addSetProperties("coverage/project/file/class/metrics");
         digester.addSetNext("coverage/project/file/class", "addClassCoverage", ClassCoverage.class.getName());
+
+        digester.addObjectCreate("coverage/project/package/file/class", ClassCoverage.class);
+        digester.addSetProperties("coverage/project/package/file/class");
+        digester.addSetProperties("coverage/project/package/file/class/metrics");
+        digester.addSetNext("coverage/project/package/file/class", "addClassCoverage", ClassCoverage.class.getName());
 
         try {
             ProjectCoverage coverage = (ProjectCoverage) digester.parse(in);
